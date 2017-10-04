@@ -64,14 +64,23 @@ class Board extends React.Component {
 }
 
 function Square(props) {
-        return (
-            <button className="square" onClick={props.onClick}>
-            {props.value}
-            </button>
-        )
+    return (
+        <button className="square" onClick={props.onClick}>
+        {props.value}
+        </button>
+    )
 }
 
 class Game extends React.Component {
+    constructor(){
+      super()
+      this.state = {
+        history: [{
+          squares: Array(9).fill(null),
+        }],
+        xIsNext: true,
+      }
+    }
     render() {
       return (
         <div className="game">
